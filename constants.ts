@@ -1,10 +1,6 @@
 
 import { ContentData, Language } from './types';
 
-// Using a generic "Master Plan" blueprint image from Unsplash for demonstration purposes
-// since local files /map_vi.png are not available in the environment.
-const MASTER_PLAN_PLACEHOLDER = "https://images.unsplash.com/photo-1524661135-423995f22d0b?q=80&w=2074&auto=format&fit=crop";
-
 export const CONTENT: Record<Language, ContentData> = {
   vi: {
     nav: {
@@ -41,7 +37,7 @@ export const CONTENT: Record<Language, ContentData> = {
     map: {
       title: "Vị Trí Chiến Lược",
       subtitle: "Kết nối giao thông huyết mạch vùng kinh tế trọng điểm Bắc Bộ",
-      mapImage: MASTER_PLAN_PLACEHOLDER,
+      mapImage: "map_vn.png", 
       googleMapUrl: "https://maps.app.goo.gl/nDFcyEZ8qY7SS3qRA",
       btnLabel: "Xem bản đồ Google Maps",
       distAirport: "Sân bay Quốc tế (Cát Bi / Nội Bài)",
@@ -148,7 +144,7 @@ export const CONTENT: Record<Language, ContentData> = {
     map: {
       title: "Strategic Location",
       subtitle: "Vital traffic connection of Northern Key Economic Region",
-      mapImage: MASTER_PLAN_PLACEHOLDER,
+      mapImage: "map_en.png", 
       googleMapUrl: "https://maps.app.goo.gl/nDFcyEZ8qY7SS3qRA",
       btnLabel: "View on Google Maps",
       distAirport: "Int'l Airports (Cat Bi / Noi Bai)",
@@ -255,7 +251,7 @@ export const CONTENT: Record<Language, ContentData> = {
     map: {
       title: "战略位置",
       subtitle: "北部重点经济区的交通大动脉",
-      mapImage: MASTER_PLAN_PLACEHOLDER,
+      mapImage: "map_zh.png",
       googleMapUrl: "https://maps.app.goo.gl/nDFcyEZ8qY7SS3qRA",
       btnLabel: "在 Google 地图上查看",
       distAirport: "国际机场 (吉碑 / 内排)",
