@@ -46,7 +46,7 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
                 <div className="max-w-3xl">
                     <div className="inline-flex items-center gap-2 bg-brand-900/20 border border-brand-500/30 px-4 py-1.5 rounded-full mb-6">
                         <Navigation size={16} className="text-brand-500" />
-                        <span className="text-brand-400 text-sm font-bold uppercase tracking-wider">Location Strategy</span>
+                        <span className="text-brand-400 text-sm font-bold uppercase tracking-wider">{content.map.locationStrategy}</span>
                     </div>
                     <h2 className="text-4xl md:text-5xl font-bold text-white mb-4">
                         {content.map.title}
@@ -80,14 +80,14 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
                                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'master' ? 'bg-brand-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
                             >
                                 <Layers size={16} />
-                                Master Plan
+                                {content.map.masterPlanBtn}
                             </button>
                             <button 
                                 onClick={() => setViewMode('google')}
                                 className={`flex items-center gap-2 px-4 py-2 rounded-lg text-sm font-bold transition-all ${viewMode === 'google' ? 'bg-blue-600 text-white shadow-lg' : 'text-slate-400 hover:text-white hover:bg-slate-800'}`}
                             >
                                 <Globe size={16} />
-                                Google Maps
+                                {content.map.googleMapBtn}
                             </button>
                         </div>
 
@@ -151,7 +151,7 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
                 {/* Connectivity Panel - Taking up 4 columns */}
                 <div className="lg:col-span-4 space-y-4 h-full flex flex-col justify-center">
                     {connections.map((item, idx) => (
-                        <div key={idx} className="bg-slate-900/80 backdrop-blur p-6 rounded-2xl border border-slate-800 hover:border-slate-600 transition-all hover:bg-slate-800 hover:translate-x-2 duration-300">
+                        <div key={idx} className="bg-slate-900/80 backdrop-blur p-6 rounded-2xl border border-slate-800 hover:border-slate-600 transition-all hover:bg-slate-800/80 hover:translate-x-2 duration-300 shadow-lg">
                             <div className="flex items-center gap-4 mb-4">
                                 <div className={`p-3 rounded-xl bg-slate-950 border border-slate-800 ${item.color}`}>
                                     {item.icon}
@@ -169,19 +169,19 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
                         </div>
                     ))}
                     
-                    <div className="bg-gradient-to-br from-brand-900/50 to-slate-900 p-6 rounded-2xl border border-brand-500/20 mt-4">
+                    <div className="bg-gradient-to-br from-brand-900/50 to-slate-900/80 backdrop-blur p-6 rounded-2xl border border-brand-500/20 mt-4 shadow-lg">
                         <h4 className="text-brand-400 font-bold flex items-center gap-2 mb-3">
                             <MapIcon size={18} />
-                            Key Access Routes
+                            {content.map.keyAccessRoutes}
                         </h4>
                         <ul className="space-y-2 text-sm text-slate-300">
                             <li className="flex items-center gap-2">
                                 <CircleDot size={12} className="text-brand-500" />
-                                Connects to CT.08 (Thai Binh - Hai Phong)
+                                {content.map.connectsTo}
                             </li>
                              <li className="flex items-center gap-2">
                                 <CircleDot size={12} className="text-brand-500" />
-                                National Highway 39A upgraded
+                                {content.map.highwayUpgraded}
                             </li>
                         </ul>
                     </div>

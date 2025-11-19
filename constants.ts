@@ -9,7 +9,8 @@ export const CONTENT: Record<Language, ContentData> = {
       fdi: "Thu Hút FDI",
       infrastructure: "Hạ Tầng & Giá",
       services: "Dịch Vụ",
-      contact: "Liên Hệ"
+      contact: "Liên Hệ",
+      industrialCluster: "CỤM CÔNG NGHIỆP"
     },
     hero: {
       title: "Cụm Công Nghiệp Thanh Tân",
@@ -17,7 +18,11 @@ export const CONTENT: Record<Language, ContentData> = {
       developer: "Phát triển bởi Indecon Group",
       area: "Diện tích: 65,47 ha",
       lease: "Thời hạn: Đến năm 2075",
-      cta: "Đăng Ký Tư Vấn Ngay"
+      cta: "Đăng Ký Tư Vấn Ngay",
+      totalAreaLabel: "Tổng Diện Tích",
+      leaseTermLabel: "Thời Hạn Thuê",
+      masterPlanLabel: "Quy Hoạch Tổng Thể",
+      masterPlanDesc: "Bố trí chiến lược tối ưu hóa hoạt động công nghiệp."
     },
     stats: {
       fdiTitle: "Kết nối hương vị biển Thái Bình",
@@ -32,7 +37,13 @@ export const CONTENT: Record<Language, ContentData> = {
         incentives: "Nhiều chính sách ưu đãi",
         labor: "Nguồn lao động dồi dào",
         global: "Tinh thần hội nhập quốc tế"
-      }
+      },
+      growthEngine: "Động Lực Tăng Trưởng",
+      fdiLabel: "FDI 2023-2024",
+      targetLabel: "Mục Tiêu 2025",
+      annualGrowth: "Tăng Trưởng Năm",
+      fdiCapital: "Vốn FDI",
+      vsPrevious: "so với kỳ trước"
     },
     map: {
       title: "Vị Trí Chiến Lược",
@@ -47,7 +58,13 @@ export const CONTENT: Record<Language, ContentData> = {
         highway: "Cao tốc kết nối",
         airport: "Sân bay",
         seaport: "Cảng biển"
-      }
+      },
+      locationStrategy: "Chiến Lược Vị Trí",
+      masterPlanBtn: "Quy Hoạch",
+      googleMapBtn: "Google Maps",
+      keyAccessRoutes: "Tuyến Giao Thông Chính",
+      connectsTo: "Kết nối với CT.08 (Thái Bình - Hải Phòng)",
+      highwayUpgraded: "Quốc lộ 39A nâng cấp"
     },
     overview: {
       title: "Tổng quan Khu kinh tế Thái Bình",
@@ -70,6 +87,20 @@ export const CONTENT: Record<Language, ContentData> = {
       landTax: "Thuế đất hàng năm: 7.200 VND/m² (ổn định 5 năm)",
       taxIncentive1: "Miễn 100% thuế TNDN (2 năm đầu)",
       taxIncentive2: "Giảm 50% thuế TNDN (4 năm tiếp theo)"
+    },
+    infra: {
+      label: "Hạ Tầng",
+      landLeasePriceLabel: "Giá Thuê Đất",
+      annualTaxLabel: "Thuế Đất Hàng Năm",
+      citIncentivesLabel: "Ưu Đãi Thuế TNDN",
+      citIncentivesDesc: "Lợi ích thuế chiến lược cho đầu tư mới.",
+      years2: "2 Năm",
+      years4: "4 Năm",
+      landUsageLabel: "Cơ Cấu Sử Dụng Đất",
+      totalLabel: "Tổng Cộng",
+      industrialLandLabel: "Đất Công Nghiệp",
+      greenWaterLabel: "Cây Xanh & Mặt Nước",
+      trafficTechLabel: "Giao Thông & Kỹ Thuật"
     },
     utilities: {
       title: "Điện & Nước",
@@ -95,7 +126,10 @@ export const CONTENT: Record<Language, ContentData> = {
         envPermit: "Giấy phép môi trường",
         firePermit: "Giấy phép PCCC",
         constructPermit: "Giấy phép xây dựng (Từ 60 ngày)"
-      }
+      },
+      supportLabel: "Hỗ Trợ",
+      fastTrack: "Nhanh Chóng",
+      days: "Ngày"
     },
     contact: {
       title: "Liên Hệ",
@@ -116,7 +150,8 @@ export const CONTENT: Record<Language, ContentData> = {
       fdi: "FDI Stats",
       infrastructure: "Infra & Price",
       services: "Services",
-      contact: "Contact"
+      contact: "Contact",
+      industrialCluster: "INDUSTRIAL CLUSTER"
     },
     hero: {
       title: "Thanh Tan Industrial Cluster",
@@ -124,7 +159,11 @@ export const CONTENT: Record<Language, ContentData> = {
       developer: "Developed by Indecon Group",
       area: "Area: 65.47 ha",
       lease: "Lease Term: Until 2075",
-      cta: "Get Consultation Now"
+      cta: "Get Consultation Now",
+      totalAreaLabel: "Total Area",
+      leaseTermLabel: "Lease Term",
+      masterPlanLabel: "Master Plan",
+      masterPlanDesc: "Strategic layout designed for optimal industrial operations."
     },
     stats: {
       fdiTitle: "Connecting the Essence of the Sea",
@@ -139,7 +178,13 @@ export const CONTENT: Record<Language, ContentData> = {
         incentives: "Attractive Incentives",
         labor: "Abundant Labor Force",
         global: "Global Integration Spirit"
-      }
+      },
+      growthEngine: "Growth Engine",
+      fdiLabel: "FDI 2023-2024",
+      targetLabel: "Target 2025",
+      annualGrowth: "Annual Growth",
+      fdiCapital: "FDI Capital",
+      vsPrevious: "vs previous period"
     },
     map: {
       title: "Strategic Location",
@@ -154,7 +199,13 @@ export const CONTENT: Record<Language, ContentData> = {
         highway: "Expressways",
         airport: "Airports",
         seaport: "Seaports"
-      }
+      },
+      locationStrategy: "Location Strategy",
+      masterPlanBtn: "Master Plan",
+      googleMapBtn: "Google Maps",
+      keyAccessRoutes: "Key Access Routes",
+      connectsTo: "Connects to CT.08 (Thai Binh - Hai Phong)",
+      highwayUpgraded: "National Highway 39A upgraded"
     },
     overview: {
       title: "Overview Thai Binh Economic Zone",
@@ -177,6 +228,20 @@ export const CONTENT: Record<Language, ContentData> = {
       landTax: "Annual Land Tax: 7,200 VND/m² (Fixed for 5 years)",
       taxIncentive1: "100% CIT Exemption (First 2 years)",
       taxIncentive2: "50% CIT Reduction (Next 4 years)"
+    },
+    infra: {
+      label: "Infrastructure",
+      landLeasePriceLabel: "Land Lease Price",
+      annualTaxLabel: "Annual Land Tax",
+      citIncentivesLabel: "CIT Incentives",
+      citIncentivesDesc: "Strategic tax benefits for new investments.",
+      years2: "2 Years",
+      years4: "4 Years",
+      landUsageLabel: "Land Usage",
+      totalLabel: "Total",
+      industrialLandLabel: "Industrial Land",
+      greenWaterLabel: "Green & Water",
+      trafficTechLabel: "Traffic & Tech"
     },
     utilities: {
       title: "Power & Water",
@@ -202,7 +267,10 @@ export const CONTENT: Record<Language, ContentData> = {
         envPermit: "Environmental Permit",
         firePermit: "Fire Prevention (PCCC)",
         constructPermit: "Construction Permit (From 60 days)"
-      }
+      },
+      supportLabel: "Support",
+      fastTrack: "Fast Track",
+      days: "Days"
     },
     contact: {
       title: "Contact Us",
@@ -223,7 +291,8 @@ export const CONTENT: Record<Language, ContentData> = {
       fdi: "FDI 统计",
       infrastructure: "基建与价格",
       services: "服务",
-      contact: "联系我们"
+      contact: "联系我们",
+      industrialCluster: "工业集群"
     },
     hero: {
       title: "清新工业园 (Thanh Tan)",
@@ -231,7 +300,11 @@ export const CONTENT: Record<Language, ContentData> = {
       developer: "开发商: Indecon Group",
       area: "面积: 65.47 公顷",
       lease: "租期: 至 2075 年",
-      cta: "立即咨询"
+      cta: "立即咨询",
+      totalAreaLabel: "总面积",
+      leaseTermLabel: "租赁期限",
+      masterPlanLabel: "总体规划",
+      masterPlanDesc: "为优化工业运营而设计的战略布局。"
     },
     stats: {
       fdiTitle: "连接海洋之韵 - 太平省",
@@ -246,7 +319,13 @@ export const CONTENT: Record<Language, ContentData> = {
         incentives: "多项投资优惠政策",
         labor: "充足劳动力",
         global: "国际化精神"
-      }
+      },
+      growthEngine: "增长引擎",
+      fdiLabel: "FDI 2023-2024",
+      targetLabel: "2025 目标",
+      annualGrowth: "年增长率",
+      fdiCapital: "FDI 资本",
+      vsPrevious: "与上期相比"
     },
     map: {
       title: "战略位置",
@@ -261,7 +340,13 @@ export const CONTENT: Record<Language, ContentData> = {
         highway: "连接高速公路",
         airport: "机场",
         seaport: "海港"
-      }
+      },
+      locationStrategy: "位置战略",
+      masterPlanBtn: "总体规划",
+      googleMapBtn: "谷歌地图",
+      keyAccessRoutes: "主要通道",
+      connectsTo: "连接 CT.08 (太平 - 海防)",
+      highwayUpgraded: "39A 国道升级"
     },
     overview: {
       title: "太平经济区概览",
@@ -284,6 +369,20 @@ export const CONTENT: Record<Language, ContentData> = {
       landTax: "年土地税: 7,200 越南盾/m² (每5年调整)",
       taxIncentive1: "企业所得税 100% 免税 (前 2 年)",
       taxIncentive2: "企业所得税减免 50% (后 4 年)"
+    },
+    infra: {
+      label: "基础设施",
+      landLeasePriceLabel: "土地租赁价格",
+      annualTaxLabel: "年度土地税",
+      citIncentivesLabel: "企业所得税优惠",
+      citIncentivesDesc: "新投资的战略税收优惠。",
+      years2: "2 年",
+      years4: "4 年",
+      landUsageLabel: "土地使用结构",
+      totalLabel: "总计",
+      industrialLandLabel: "工业用地",
+      greenWaterLabel: "绿地与水域",
+      trafficTechLabel: "交通与技术"
     },
     utilities: {
       title: "电力与用水",
@@ -309,7 +408,10 @@ export const CONTENT: Record<Language, ContentData> = {
         envPermit: "环保许可",
         firePermit: "消防证书 (PCCC)",
         constructPermit: "施工许可 (60天起)"
-      }
+      },
+      supportLabel: "支持",
+      fastTrack: "快速通道",
+      days: "天"
     },
     contact: {
       title: "联系我们",

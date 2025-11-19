@@ -56,7 +56,7 @@ export const NavBar: React.FC<NavBarProps> = ({ lang, setLang, content }) => {
             
             <div className="flex flex-col items-start justify-center">
               <span className="text-white font-bold text-lg tracking-tight leading-none">THANH TAN</span>
-              <span className="text-brand-400 text-xs font-medium tracking-wider leading-none">INDUSTRIAL CLUSTER</span>
+              <span className="text-brand-400 text-xs font-medium tracking-wider leading-none">{content.nav.industrialCluster}</span>
             </div>
           </div>
 

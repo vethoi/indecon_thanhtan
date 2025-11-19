@@ -73,7 +73,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <span className="w-8 h-0.5 bg-brand-500"></span>
-              <h2 className="text-brand-400 font-bold tracking-widest uppercase text-sm">Growth Engine</h2>
+              <h2 className="text-brand-400 font-bold tracking-widest uppercase text-sm">{content.stats.growthEngine}</h2>
             </div>
             <h3 className="text-3xl md:text-5xl font-bold text-white mb-6 leading-tight">
               {content.stats.fdiTitle}
@@ -85,7 +85,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
             <div className="grid grid-cols-2 gap-6 mb-10">
               <div className="group p-6 bg-slate-900/80 backdrop-blur rounded-2xl border border-slate-800 hover:border-brand-500/50 transition-all duration-500 shadow-lg hover:shadow-brand-900/20">
                 <div className="flex justify-between items-start mb-2">
-                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider">FDI 2023-2024</p>
+                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider">{content.stats.fdiLabel}</p>
                    <ArrowUpRight size={16} className="text-brand-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <p className="text-4xl md:text-5xl font-bold text-white flex items-baseline gap-1">
@@ -96,7 +96,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
               </div>
               <div className="group p-6 bg-slate-900/80 backdrop-blur rounded-2xl border border-slate-800 hover:border-blue-500/50 transition-all duration-500 shadow-lg hover:shadow-blue-900/20">
                  <div className="flex justify-between items-start mb-2">
-                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider">Target 2025</p>
+                   <p className="text-slate-500 text-xs font-bold uppercase tracking-wider">{content.stats.targetLabel}</p>
                    <ArrowUpRight size={16} className="text-blue-500 opacity-0 group-hover:opacity-100 transition-opacity" />
                 </div>
                 <p className="text-4xl md:text-5xl font-bold text-white flex items-baseline gap-1">
@@ -108,7 +108,7 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
             
             {/* Client List Grid */}
             <div>
-               <h4 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-4 opacity-80">Strategic Investors</h4>
+               <h4 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-4 opacity-80">{content.stats.companiesTitle}</h4>
                <div className="flex flex-wrap gap-3">
                  {content.stats.companies.map((company: string, idx: number) => (
                    <div 
@@ -132,14 +132,14 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
                  
                  <div className="flex justify-between items-end mb-8 relative z-10">
                     <div>
-                        <p className="text-slate-400 font-medium">Annual Growth</p>
-                        <h3 className="text-2xl font-bold text-white">FDI Capital</h3>
+                        <p className="text-slate-400 font-medium">{content.stats.annualGrowth}</p>
+                        <h3 className="text-2xl font-bold text-white">{content.stats.fdiCapital}</h3>
                     </div>
                     <div className="text-right">
                         <p className="text-brand-500 font-bold text-xl flex items-center justify-end gap-1">
                             +25.4% <TrendingUp size={20}/>
                         </p>
-                        <p className="text-slate-500 text-sm">vs previous period</p>
+                        <p className="text-slate-500 text-sm">{content.stats.vsPrevious}</p>
                     </div>
                  </div>
 
@@ -180,13 +180,13 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
 
              {/* Feature Badges */}
              <div className="grid grid-cols-2 gap-4">
-                <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800 hover:bg-slate-800 transition-colors flex items-center gap-4">
+                <div className="bg-slate-900/80 backdrop-blur p-5 rounded-2xl border border-slate-800 hover:border-brand-500/30 hover:bg-slate-800/80 transition-all flex items-center gap-4 shadow-lg">
                     <div className="w-10 h-10 rounded-full bg-brand-900/30 flex items-center justify-center text-brand-500">
                         <MapPin size={20} />
                     </div>
                     <span className="text-sm font-bold text-white">{content.stats.badges.location}</span>
                 </div>
-                <div className="bg-slate-900 p-5 rounded-2xl border border-slate-800 hover:bg-slate-800 transition-colors flex items-center gap-4">
+                <div className="bg-slate-900/80 backdrop-blur p-5 rounded-2xl border border-slate-800 hover:border-blue-500/30 hover:bg-slate-800/80 transition-all flex items-center gap-4 shadow-lg">
                     <div className="w-10 h-10 rounded-full bg-blue-900/30 flex items-center justify-center text-blue-500">
                         <Users size={20} />
                     </div>

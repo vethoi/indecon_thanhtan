@@ -16,7 +16,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ content }) => 
           
           {/* Services List */}
           <div className="lg:w-1/3">
-            <h2 className="text-brand-400 font-bold tracking-widest uppercase mb-2 text-sm">Support</h2>
+            <h2 className="text-brand-400 font-bold tracking-widest uppercase mb-2 text-sm">{content.services.supportLabel}</h2>
             <h3 className="text-3xl md:text-4xl font-bold text-white mb-6">{content.services.title}</h3>
             <p className="text-xl text-slate-400 mb-8">{content.services.subtitle}</p>
             
@@ -37,11 +37,15 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ content }) => 
                    days="30" 
                    title={content.services.steps.investCert} 
                    variant="brand"
+                   fastTrackLabel={content.services.fastTrack}
+                   daysLabel={content.services.days}
                 />
                 <TimelineCard 
                    days="60" 
                    title={content.services.steps.constructPermit} 
                    variant="blue"
+                   fastTrackLabel={content.services.fastTrack}
+                   daysLabel={content.services.days}
                 />
                 <SimpleCard title={content.services.steps.envPermit} />
                 <SimpleCard title={content.services.steps.firePermit} />
@@ -53,7 +57,7 @@ export const ServicesSection: React.FC<ServicesSectionProps> = ({ content }) => 
   );
 };
 
-const TimelineCard = ({ days, title, variant }: { days: string, title: string, variant: 'brand' | 'blue' }) => {
+const TimelineCard = ({ days, title, variant, fastTrackLabel, daysLabel }: { days: string, title: string, variant: 'brand' | 'blue', fastTrackLabel: string, daysLabel: string }) => {
     const isBrand = variant === 'brand';
     return (
         <div className={`p-6 rounded-2xl border ${isBrand ? 'bg-brand-900/10 border-brand-500/30' : 'bg-blue-900/10 border-blue-500/30'} relative overflow-hidden`}>
@@ -62,11 +66,11 @@ const TimelineCard = ({ days, title, variant }: { days: string, title: string, v
             </div>
             <div className="relative z-10">
                 <span className={`text-xs font-bold uppercase tracking-wider ${isBrand ? 'text-brand-400' : 'text-blue-400'}`}>
-                    Fast Track
+                    {fastTrackLabel}
                 </span>
                 <div className="flex items-baseline gap-1 my-2">
                     <span className="text-4xl font-bold text-white">{days}</span>
-                    <span className="text-slate-400">Days</span>
+                    <span className="text-slate-400">{daysLabel}</span>
                 </div>
                 <p className="text-slate-200 font-medium border-t border-slate-700/50 pt-3 mt-2">
                     {title}

@@ -1,6 +1,8 @@
 
 import React, { useState } from 'react';
-import { ArrowRight, Calendar, Ruler, CheckCircle2, MapPin } from 'lucide-react';
+import { ArrowRight, CheckCircle2, MapPin } from 'lucide-react';
+import { FiveElementsBackground } from './3d/FiveElementsBackground';
+import { Icon3D } from './3d/Icon3D';
 
 interface HeroProps {
   content: any;
@@ -20,6 +22,9 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
             />
          <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/70 to-slate-950" />
       </div>
+
+      {/* 3D Five Elements Background Layer */}
+      <FiveElementsBackground />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
         <div className="grid lg:grid-cols-12 gap-12 items-center">
@@ -48,16 +53,20 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
             {/* Stats Grid */}
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg animate-slide-up" style={{ animationDelay: '0.4s' }}>
                <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm px-5 py-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors group">
-                  <div className="p-2.5 bg-brand-500/20 rounded-lg text-brand-400 group-hover:bg-brand-500 group-hover:text-white transition-colors"><Ruler size={20}/></div>
+                  <div className="flex items-center justify-center">
+                      <Icon3D type="ruler" color="#4ade80" />
+                  </div>
                   <div>
-                     <p className="text-xs text-slate-400 uppercase font-bold tracking-wider">Total Area</p>
+                     <p className="text-xs text-slate-400 uppercase font-bold tracking-wider">{content.hero.totalAreaLabel}</p>
                      <p className="text-white font-bold text-lg">{content.hero.area.split(': ')[1]}</p>
                   </div>
                </div>
                <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm px-5 py-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors group">
-                  <div className="p-2.5 bg-blue-500/20 rounded-lg text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors"><Calendar size={20}/></div>
+                  <div className="flex items-center justify-center">
+                      <Icon3D type="calendar" color="#60a5fa" />
+                  </div>
                   <div>
-                     <p className="text-xs text-slate-400 uppercase font-bold tracking-wider">Lease Term</p>
+                     <p className="text-xs text-slate-400 uppercase font-bold tracking-wider">{content.hero.leaseTermLabel}</p>
                      <p className="text-white font-bold text-lg">{content.hero.lease.split(': ')[1]}</p>
                   </div>
                </div>
@@ -81,14 +90,14 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
              <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none"></div>
              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none" style={{ animationDelay: '1s' }}></div>
 
-             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900/40 backdrop-blur-sm group transition-transform duration-500 hover:scale-[1.01]">
+             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900/40 backdrop-blur-md group transition-transform duration-500 hover:scale-[1.01]">
                 {/* Animated Border Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 opacity-100 pointer-events-none z-20"></div>
                 
                 {/* Glow effect behind (enhanced) */}
                 <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-500/30 to-blue-600/30 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition duration-700"></div>
                 
-                <div className="relative bg-slate-900/80 rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] z-10">
+                <div className="relative bg-slate-900/60 rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] z-10">
                     {!imgError ? (
                       <>
                         <img
@@ -115,9 +124,9 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
                 <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-4 rounded-xl border border-white/10 z-20 transform transition-all duration-500 translate-y-2 group-hover:translate-y-0">
                     <div className="flex items-center gap-2 mb-1">
                         <div className="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></div>
-                        <p className="text-xs text-brand-300 uppercase font-bold tracking-wider">Master Plan</p>
+                        <p className="text-xs text-brand-300 uppercase font-bold tracking-wider">{content.hero.masterPlanLabel}</p>
                     </div>
-                    <p className="text-white text-sm font-medium opacity-90 group-hover:opacity-100 transition-opacity">Strategic layout designed for optimal industrial operations.</p>
+                    <p className="text-white text-sm font-medium opacity-90 group-hover:opacity-100 transition-opacity">{content.hero.masterPlanDesc}</p>
                 </div>
              </div>
           </div>
