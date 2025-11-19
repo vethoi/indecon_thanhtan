@@ -41,7 +41,7 @@ export const NavBar: React.FC<NavBarProps> = ({ lang, setLang, content }) => {
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img
-              src="logo.png"
+              src="/logo.png"
               alt="Thanh Tan Logo"
               className="h-10 w-auto object-contain opacity-90"
               onError={(e) => {
