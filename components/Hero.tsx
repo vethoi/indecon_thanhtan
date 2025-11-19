@@ -1,6 +1,6 @@
 
 import React, { useState } from 'react';
-import { ArrowRight, Calendar, Ruler, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, Calendar, Ruler, CheckCircle2, MapPin } from 'lucide-react';
 
 interface HeroProps {
   content: any;
@@ -10,89 +10,118 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
   const [imgError, setImgError] = useState(false);
 
   return (
-    <section id="hero" className="relative min-h-screen flex items-center justify-center overflow-hidden">
-      {/* Background Image with Cinematic Overlay */}
-      <div className="absolute inset-0 z-0">
-        {!imgError ? (
-          <img
-            src={`${import.meta.env.BASE_URL}hero.jpg`}
-            alt="Thanh Tan Industrial Cluster Master Plan" 
-            className="w-full h-full object-cover opacity-100 transform scale-105 animate-pulse-slow" 
-            style={{ animationDuration: '60s' }}
-            onError={(e) => {
-              console.warn("hero.jpg not found, trying fallback");
-              setImgError(true);
-            }}
-          />
-        ) : (
-          // Fallback to map image if hero.jpg is missing, or a nice gradient
-          <div className="w-full h-full bg-slate-900 relative">
-             <img
-                src={`${import.meta.env.BASE_URL}map_vn.png`}
-                alt="Fallback Background"
-                className="w-full h-full object-cover opacity-30 blur-sm"
-             />
-             <div className="absolute inset-0 bg-gradient-to-br from-brand-900/40 to-slate-900/90"></div>
-          </div>
-        )}
-        
-        {/* Vertical Gradient: Lighter top, Dark bottom */}
-        <div className="absolute inset-0 bg-gradient-to-b from-slate-950/40 via-slate-950/20 to-slate-950" />
-        
-        {/* Horizontal Vignette: Focus on center */}
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,transparent_20%,rgba(2,6,23,0.7)_100%)]" />
-        
-        {/* Color Tint: Slight navy/green tint for premium feel */}
-        <div className="absolute inset-0 bg-slate-900/20 mix-blend-overlay" />
+    <section id="hero" className="relative min-h-screen flex items-center overflow-hidden bg-slate-950 pt-24 pb-12 lg:pt-0">
+      {/* Ambient Background */}
+      <div className="absolute inset-0 z-0 pointer-events-none">
+            <img
+              src={`${import.meta.env.BASE_URL}panorama.jpg`}
+              alt="Background"
+              className="w-full h-full object-cover opacity-60"
+            />
+         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/70 to-slate-950" />
       </div>
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center pt-20">
-        
-        <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
-            <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-white/10 border border-white/20 text-white text-xs md:text-sm font-bold tracking-widest uppercase mb-6 backdrop-blur-xl hover:bg-white/20 transition-colors cursor-default shadow-lg">
-              <CheckCircle2 size={14} className="text-brand-400" />
-              {content.hero.developer}
-            </span>
-        </div>
-        
-        <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold text-white mb-6 tracking-tight leading-none animate-slide-up drop-shadow-2xl" style={{ animationDelay: '0.2s' }}>
-          <span className="block text-shadow-lg">
-            {content.hero.title}
-          </span>
-        </h1>
-        
-        <p className="text-lg md:text-2xl text-slate-100 max-w-3xl mx-auto mb-10 font-light animate-slide-up leading-relaxed drop-shadow-md text-shadow" style={{ animationDelay: '0.3s' }}>
-          {content.hero.subtitle}
-        </p>
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+        <div className="grid lg:grid-cols-12 gap-12 items-center">
+          
+          {/* Left Column: Content (7 cols) */}
+          <div className="lg:col-span-7 flex flex-col items-start text-left space-y-8">
+            
+            {/* Badge */}
+            <div className="animate-slide-up" style={{ animationDelay: '0.1s' }}>
+                <span className="inline-flex items-center gap-2 py-1.5 px-4 rounded-full bg-brand-500/10 border border-brand-500/20 text-brand-300 text-xs md:text-sm font-bold tracking-widest uppercase backdrop-blur-xl shadow-lg shadow-brand-900/20">
+                  <CheckCircle2 size={14} className="text-brand-400" />
+                  {content.hero.developer}
+                </span>
+            </div>
+            
+            {/* Title */}
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold text-white tracking-tight leading-tight animate-slide-up drop-shadow-xl" style={{ animationDelay: '0.2s' }}>
+              {content.hero.title}
+            </h1>
+            
+            {/* Subtitle */}
+            <p className="text-lg md:text-xl text-slate-300 max-w-2xl font-light animate-slide-up leading-relaxed" style={{ animationDelay: '0.3s' }}>
+              {content.hero.subtitle}
+            </p>
 
-        <div className="flex flex-wrap justify-center gap-6 mb-12 animate-slide-up" style={{ animationDelay: '0.4s' }}>
-           <div className="group flex items-center gap-4 bg-slate-950/40 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/10 shadow-2xl hover:bg-slate-900/60 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-1">
-              <div className="p-3 bg-brand-500/20 rounded-xl text-brand-300 group-hover:bg-brand-600 group-hover:text-white transition-colors"><Ruler size={24}/></div>
-              <div className="text-left">
-                 <p className="text-xs text-slate-300 uppercase font-bold tracking-wider">Total Area</p>
-                 <p className="text-white font-bold text-lg">{content.hero.area.split(': ')[1]}</p>
-              </div>
-           </div>
-           <div className="group flex items-center gap-4 bg-slate-950/40 backdrop-blur-md px-6 py-4 rounded-2xl border border-white/10 shadow-2xl hover:bg-slate-900/60 hover:border-brand-500/40 transition-all duration-300 hover:-translate-y-1">
-              <div className="p-3 bg-blue-500/20 rounded-xl text-blue-300 group-hover:bg-blue-600 group-hover:text-white transition-colors"><Calendar size={24}/></div>
-              <div className="text-left">
-                 <p className="text-xs text-slate-300 uppercase font-bold tracking-wider">Lease Term</p>
-                 <p className="text-white font-bold text-lg">{content.hero.lease.split(': ')[1]}</p>
-              </div>
-           </div>
-        </div>
+            {/* Stats Grid */}
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 w-full max-w-lg animate-slide-up" style={{ animationDelay: '0.4s' }}>
+               <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm px-5 py-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors group">
+                  <div className="p-2.5 bg-brand-500/20 rounded-lg text-brand-400 group-hover:bg-brand-500 group-hover:text-white transition-colors"><Ruler size={20}/></div>
+                  <div>
+                     <p className="text-xs text-slate-400 uppercase font-bold tracking-wider">Total Area</p>
+                     <p className="text-white font-bold text-lg">{content.hero.area.split(': ')[1]}</p>
+                  </div>
+               </div>
+               <div className="flex items-center gap-4 bg-white/5 backdrop-blur-sm px-5 py-4 rounded-xl border border-white/10 hover:bg-white/10 transition-colors group">
+                  <div className="p-2.5 bg-blue-500/20 rounded-lg text-blue-400 group-hover:bg-blue-500 group-hover:text-white transition-colors"><Calendar size={20}/></div>
+                  <div>
+                     <p className="text-xs text-slate-400 uppercase font-bold tracking-wider">Lease Term</p>
+                     <p className="text-white font-bold text-lg">{content.hero.lease.split(': ')[1]}</p>
+                  </div>
+               </div>
+            </div>
 
-        <div className="animate-slide-up" style={{ animationDelay: '0.5s' }}>
-          <a 
-            href="#contact"
-            className="relative inline-flex items-center justify-center gap-3 bg-brand-600 hover:bg-brand-500 text-white text-lg font-bold px-10 py-5 rounded-full transition-all shadow-[0_0_40px_-10px_rgba(34,197,94,0.6)] hover:shadow-[0_0_60px_-10px_rgba(34,197,94,0.8)] transform hover:-translate-y-1 overflow-hidden group ring-4 ring-brand-500/20"
-          >
-             {/* Shimmer Effect */}
-             <div className="absolute top-0 -inset-full h-full w-1/2 z-5 block transform -skew-x-12 bg-gradient-to-r from-transparent to-white opacity-20 group-hover:animate-shimmer" />
-             
-            <span className="relative z-10">{content.hero.cta}</span>
-            <ArrowRight className="relative z-10 group-hover:translate-x-1 transition-transform" />
-          </a>
+            {/* CTA */}
+            <div className="animate-slide-up pt-2" style={{ animationDelay: '0.5s' }}>
+              <a 
+                href="#contact"
+                className="inline-flex items-center justify-center gap-3 bg-brand-600 hover:bg-brand-500 text-white text-base md:text-lg font-bold px-8 py-4 rounded-full transition-all shadow-lg shadow-brand-600/30 hover:shadow-brand-600/50 hover:-translate-y-1"
+              >
+                <span>{content.hero.cta}</span>
+                <ArrowRight size={20} />
+              </a>
+            </div>
+          </div>
+
+          {/* Right Column: Image (5 cols) */}
+          <div className="lg:col-span-5 relative animate-fade-in mt-8 lg:mt-0 perspective-1000" style={{ animationDelay: '0.6s' }}>
+             {/* Decorative elements behind */}
+             <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none"></div>
+             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none" style={{ animationDelay: '1s' }}></div>
+
+             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900/40 backdrop-blur-sm group transition-transform duration-500 hover:scale-[1.01]">
+                {/* Animated Border Gradient */}
+                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 opacity-100 pointer-events-none z-20"></div>
+                
+                {/* Glow effect behind (enhanced) */}
+                <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-500/30 to-blue-600/30 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition duration-700"></div>
+                
+                <div className="relative bg-slate-900/80 rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] z-10">
+                    {!imgError ? (
+                      <>
+                        <img
+                          src={`${import.meta.env.BASE_URL}masterplan.jpg`}
+                          alt="Thanh Tan Master Plan" 
+                          className="w-full h-full object-contain p-1 transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
+                          onError={() => setImgError(true)}
+                        />
+                        {/* Subtle color grading overlay that disappears on hover to make it blend initially */}
+                        <div className="absolute inset-0 bg-slate-950/30 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 pointer-events-none"></div>
+                        <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700 pointer-events-none"></div>
+                        
+                        {/* Glossy reflection effect */}
+                        <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
+                      </>
+                    ) : (
+                       <div className="w-full h-full flex items-center justify-center bg-slate-800 text-slate-500">
+                          <MapPin size={48} />
+                       </div>
+                    )}
+                </div>
+                
+                {/* Overlay Badge on Image - Refined */}
+                <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-4 rounded-xl border border-white/10 z-20 transform transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                    <div className="flex items-center gap-2 mb-1">
+                        <div className="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></div>
+                        <p className="text-xs text-brand-300 uppercase font-bold tracking-wider">Master Plan</p>
+                    </div>
+                    <p className="text-white text-sm font-medium opacity-90 group-hover:opacity-100 transition-opacity">Strategic layout designed for optimal industrial operations.</p>
+                </div>
+             </div>
+          </div>
+
         </div>
       </div>
     </section>

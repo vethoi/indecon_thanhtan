@@ -132,9 +132,9 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
                                  </>
                              ) : (
                                 <iframe 
-                                    // Changed t=h (Hybrid) to t=k (Satellite) for a more premium industrial look
-                                    // Added language param &hl=en/vi depending on context if needed, but standard is fine
-                                    src="https://maps.google.com/maps?q=C%E1%BB%A5m%20c%C3%B4ng%20nghi%E1%BB%87p%20Thanh%20T%C3%A2n,%20Th%C3%A1i%20B%C3%ACnh&t=k&z=14&ie=UTF8&iwloc=&output=embed"
+                                    // Changed t=m (Map) for standard view as requested
+                                    // Zoom out further to z=8 as requested
+                                    src="https://maps.google.com/maps?q=C%E1%BB%A5m%20c%C3%B4ng%20nghi%E1%BB%87p%20Thanh%20T%C3%A2n,%20Th%C3%A1i%20B%C3%ACnh&t=m&z=8&ll=19.8,106.2&ie=UTF8&iwloc=&output=embed"
                                     width="100%" 
                                     height="100%" 
                                     style={{ border: 0, filter: 'contrast(1.1) saturate(0.8) brightness(0.9)' }}
