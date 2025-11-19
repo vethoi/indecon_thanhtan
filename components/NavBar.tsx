@@ -40,10 +40,9 @@ export const NavBar: React.FC<NavBarProps> = ({ lang, setLang, content }) => {
         <div className="flex items-center justify-between">
           {/* Logo */}
           <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-            {/* Using a placeholder service to guarantee logo visibility */}
-            <img 
-              src="https://placehold.co/200x80/transparent/white?text=THANH+TAN" 
-              alt="Thanh Tan Logo" 
+            <img
+              src="logo.png"
+              alt="Thanh Tan Logo"
               className="h-10 w-auto object-contain opacity-90"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
