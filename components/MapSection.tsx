@@ -107,9 +107,9 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
                         <div className="w-full h-full bg-slate-800 relative">
                              {viewMode === 'master' ? (
                                  <>
-                                    <img 
-                                        key={content.map.mapImage} 
-                                        src={content.map.mapImage} 
+                                    <img
+                                        key={content.map.mapImage}
+                                        src={`${import.meta.env.BASE_URL}${content.map.mapImage}`}
                                         alt="Thanh Tan Master Plan Map" 
                                         className="w-full h-full object-cover transition-transform duration-700 animate-fade-in"
                                         onError={(e) => {

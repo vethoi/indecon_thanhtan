@@ -37,7 +37,7 @@ export const CONTENT: Record<Language, ContentData> = {
     map: {
       title: "Vị Trí Chiến Lược",
       subtitle: "Kết nối giao thông huyết mạch vùng kinh tế trọng điểm Bắc Bộ",
-      mapImage: "/map_vn.png", 
+      mapImage: "map_vn.png", 
       googleMapUrl: "https://maps.app.goo.gl/nDFcyEZ8qY7SS3qRA",
       btnLabel: "Xem bản đồ Google Maps",
       distAirport: "Sân bay Quốc tế (Cát Bi / Nội Bài)",
@@ -144,7 +144,7 @@ export const CONTENT: Record<Language, ContentData> = {
     map: {
       title: "Strategic Location",
       subtitle: "Vital traffic connection of Northern Key Economic Region",
-      mapImage: "/map_en.png", 
+      mapImage: "map_en.png", 
       googleMapUrl: "https://maps.app.goo.gl/nDFcyEZ8qY7SS3qRA",
       btnLabel: "View on Google Maps",
       distAirport: "Int'l Airports (Cat Bi / Noi Bai)",
@@ -251,7 +251,7 @@ export const CONTENT: Record<Language, ContentData> = {
     map: {
       title: "战略位置",
       subtitle: "北部重点经济区的交通大动脉",
-      mapImage: "/map_zh.png",
+      mapImage: "map_zh.png",
       googleMapUrl: "https://maps.app.goo.gl/nDFcyEZ8qY7SS3qRA",
       btnLabel: "在 Google 地图上查看",
       distAirport: "国际机场 (吉碑 / 内排)",
