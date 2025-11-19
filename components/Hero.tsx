@@ -14,8 +14,8 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
       {/* Background Image with Cinematic Overlay */}
       <div className="absolute inset-0 z-0">
         {!imgError ? (
-          <img 
-            src="hero.jpg" 
+          <img
+            src="/hero.jpg"
             alt="Thanh Tan Industrial Cluster Master Plan" 
             className="w-full h-full object-cover opacity-100 transform scale-105 animate-pulse-slow" 
             style={{ animationDuration: '60s' }}
@@ -27,8 +27,8 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
         ) : (
           // Fallback to map image if hero.jpg is missing, or a nice gradient
           <div className="w-full h-full bg-slate-900 relative">
-             <img 
-                src="map_vn.png" 
+             <img
+                src="/map_vn.png"
                 alt="Fallback Background"
                 className="w-full h-full object-cover opacity-30 blur-sm"
              />
