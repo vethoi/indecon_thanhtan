@@ -35,22 +35,12 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
   const sectionRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setIsVisible(true);
-        }
-      },
-      { threshold: 0.2 }
-    );
-
-    if (sectionRef.current) {
-      observer.observe(sectionRef.current);
-    }
-
-    return () => {
-      if (sectionRef.current) observer.unobserve(sectionRef.current);
-    };
+    // Simple timeout to trigger animation after mount
+    const timer = setTimeout(() => {
+      setIsVisible(true);
+    }, 200);
+    
+    return () => clearTimeout(timer);
   }, []);
 
   // Extract numeric values roughly for animation
@@ -106,18 +96,40 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
               </div>
             </div>
             
-            {/* Client List Grid */}
+            {/* Strategic Investors */}
             <div>
-               <h4 className="text-slate-500 text-xs font-bold uppercase tracking-widest mb-4 opacity-80">{content.stats.companiesTitle}</h4>
-               <div className="flex flex-wrap gap-3">
-                 {content.stats.companies.map((company: string, idx: number) => (
+               <h4 className="text-slate-400 text-xs font-bold uppercase tracking-widest mb-5 flex items-center gap-2">
+                 <div className="w-1 h-4 bg-brand-500 rounded-full"></div>
+                 {content.stats.companiesTitle}
+               </h4>
+               <div className="grid grid-cols-2 sm:grid-cols-3 gap-4">
+                 {[
+                   { name: 'Thaco Auto', logo: `${import.meta.env.BASE_URL}logos/logo-thaco-auto-2.webp` },
+                   { name: 'Mercedes-Benz', logo: `${import.meta.env.BASE_URL}logos/logo-mb.png` },
+                   { name: 'Tokyo Gas', logo: `${import.meta.env.BASE_URL}logos/logo_tokyogas.svg`, needsGlow: true },
+                   { name: 'Pegavision', logo: `${import.meta.env.BASE_URL}logos/download.webp` },
+                   { name: 'Compal', logo: `${import.meta.env.BASE_URL}logos/compal-logo_green.svg` },
+                   { name: 'Geely', logo: `${import.meta.env.BASE_URL}logos/geely-logo_1.png` }
+                 ].map((company, idx) => (
                    <div 
                     key={idx} 
-                    className="group flex items-center gap-2 bg-slate-900 border border-slate-800 px-4 py-2.5 rounded-full text-slate-300 font-medium text-sm hover:bg-slate-800 hover:border-brand-500 hover:text-white transition-all cursor-default hover:-translate-y-0.5"
-                    style={{ transitionDelay: `${idx * 50}ms` }}
+                    className="group relative border border-slate-700/30 rounded-2xl p-6 hover:border-brand-400/50 transition-all duration-300 cursor-pointer hover:-translate-y-1 hover:shadow-xl hover:shadow-brand-500/20 aspect-[3/2]"
+                    style={{ animationDelay: `${idx * 50}ms` }}
                    >
-                      <Building size={14} className="text-slate-500 group-hover:text-brand-500 transition-colors" />
-                      {company}
+                      <div className="absolute inset-0 bg-gradient-to-br from-brand-500/0 to-brand-500/5 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                      <div className="relative flex items-center justify-center h-full">
+                        <img 
+                          src={company.logo} 
+                          alt={company.name}
+                          className={`max-w-[140px] max-h-full object-contain transition-all duration-300 group-hover:scale-105 ${
+                            company.needsGlow ? 'drop-shadow-[0_0_8px_rgba(255,255,255,0.8)]' : ''
+                          }`}
+                          onError={(e) => {
+                            e.currentTarget.style.display = 'none';
+                            e.currentTarget.parentElement!.innerHTML = `<span class="text-slate-300 font-bold text-base">${company.name}</span>`;
+                          }}
+                        />
+                      </div>
                    </div>
                  ))}
                </div>
@@ -137,44 +149,51 @@ export const StatsSection: React.FC<StatsSectionProps> = ({ content }) => {
                     </div>
                     <div className="text-right">
                         <p className="text-brand-500 font-bold text-xl flex items-center justify-end gap-1">
-                            +25.4% <TrendingUp size={20}/>
+                            {content.stats.growthRate} <TrendingUp size={20}/>
                         </p>
                         <p className="text-slate-500 text-sm">{content.stats.vsPrevious}</p>
                     </div>
                  </div>
 
-                 {/* Custom CSS/SVG Chart */}
-                 <div className="h-64 flex items-end justify-between gap-4 relative z-10 pl-2 pb-2 border-l border-b border-slate-700/50">
-                    {/* Bar 1 */}
-                    <div className="w-full bg-slate-800/50 rounded-t-lg relative group/bar overflow-hidden">
+                 {/* FDI Chart - Bar Chart */}
+                 <div className="h-80 flex items-end justify-between gap-4 relative z-10 pl-4 pb-4 border-l-2 border-b-2 border-slate-700/50">
+                    {[
+                      { year: '2020', value: 0.3, height: '27%', color: 'bg-slate-600', delay: '0ms' },
+                      { year: '2021', value: 0.68, height: '60%', color: 'bg-slate-500', delay: '100ms' },
+                      { year: '2022', value: 0.68, height: '60%', color: 'bg-slate-400', delay: '200ms' },
+                      { year: '2023', value: 2.79, height: '100%', color: 'bg-brand-500', isPeak: true, delay: '300ms' },
+                      { year: '2024', value: 1.16, height: '85%', color: 'bg-brand-600/80', delay: '400ms' },
+                      { year: '2025', value: 1.2, height: '87%', color: 'bg-slate-700/40', isTarget: true, delay: '500ms' }
+                    ].map((bar) => (
+                      <div key={bar.year} className="relative flex-1 max-w-[80px] h-full flex items-end group/bar">
+                        {/* Actual Bar */}
                         <div 
-                            className={`absolute bottom-0 w-full bg-gradient-to-t from-slate-600 to-slate-500 transition-all duration-1000 ease-out ${isVisible ? 'h-[40%]' : 'h-0'}`}
-                        ></div>
-                        <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-bold text-slate-500 opacity-0 group-hover/bar:opacity-100 transition-opacity">2022</div>
-                    </div>
-                    {/* Bar 2 */}
-                    <div className="w-full bg-slate-800/50 rounded-t-lg relative group/bar overflow-hidden">
-                        <div 
-                             className={`absolute bottom-0 w-full bg-gradient-to-t from-brand-700 to-brand-600 transition-all duration-1000 ease-out delay-100 ${isVisible ? 'h-[85%]' : 'h-0'}`}
-                        ></div>
-                         <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-bold text-brand-500 opacity-0 group-hover/bar:opacity-100 transition-opacity">2023</div>
-                    </div>
-                    {/* Bar 3 */}
-                    <div className="w-full bg-slate-800/50 rounded-t-lg relative group/bar overflow-hidden">
-                         {/* Pulse Effect on top bar */}
-                        <div className="absolute top-0 left-0 w-full h-full bg-white/10 animate-pulse z-20"></div>
-                        <div 
-                             className={`absolute bottom-0 w-full bg-gradient-to-t from-brand-600 to-brand-400 transition-all duration-1000 ease-out delay-200 ${isVisible ? 'h-[100%]' : 'h-0'}`}
-                        ></div>
-                        <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-bold text-white opacity-100">2024</div>
-                    </div>
-                     {/* Bar 4 (Target) */}
-                     <div className="w-full bg-slate-800/30 rounded-t-lg relative group/bar border border-dashed border-slate-600">
-                        <div 
-                             className={`absolute bottom-0 w-full bg-gradient-to-t from-slate-700 to-slate-600 opacity-50 transition-all duration-1000 ease-out delay-300 ${isVisible ? 'h-[60%]' : 'h-0'}`}
-                        ></div>
-                         <div className="absolute -top-8 left-1/2 -translate-x-1/2 text-xs font-bold text-slate-400">2025</div>
-                    </div>
+                          className={`w-full ${bar.color} rounded-t-sm transition-all duration-1000 ease-out ${
+                            bar.isTarget ? 'border-2 border-dashed border-slate-600' : ''
+                          } ${bar.isPeak ? 'shadow-[0_0_20px_rgba(34,197,94,0.5)]' : ''}`}
+                          style={{ 
+                            height: isVisible ? bar.height : '0%',
+                            transitionDelay: bar.delay
+                          }}
+                        >
+                          {bar.isPeak && <div className="absolute inset-0 bg-white/10 animate-pulse rounded-t-sm"></div>}
+                        </div>
+                        
+                        {/* Year label */}
+                        <div className={`absolute -top-7 left-1/2 -translate-x-1/2 text-[11px] font-bold whitespace-nowrap ${
+                          bar.isPeak ? 'text-brand-500' : 'text-slate-400'
+                        }`}>
+                          {bar.year}
+                        </div>
+                        
+                        {/* Value label with currency unit */}
+                        <div className={`absolute ${bar.isPeak ? 'bottom-3' : 'bottom-1'} left-1/2 -translate-x-1/2 text-xs font-bold text-white whitespace-nowrap ${
+                          !bar.isPeak ? 'opacity-0 group-hover/bar:opacity-100' : ''
+                        } transition-opacity drop-shadow-lg`}>
+                          {bar.value} {content.stats.currencyUnit}
+                        </div>
+                      </div>
+                    ))}
                  </div>
              </div>
 

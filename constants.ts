@@ -41,9 +41,11 @@ export const CONTENT: Record<Language, ContentData> = {
       growthEngine: "Động Lực Tăng Trưởng",
       fdiLabel: "FDI 2023-2024",
       targetLabel: "Mục Tiêu 2025",
-      annualGrowth: "Tăng Trưởng Năm",
+      annualGrowth: "Tăng Trưởng Trung Bình Năm",
       fdiCapital: "Vốn FDI",
-      vsPrevious: "so với kỳ trước"
+      vsPrevious: "tốc độ tăng trưởng",
+      growthRate: "+40%",
+      currencyUnit: "Tỷ USD"
     },
     map: {
       title: "Vị Trí Chiến Lược",
@@ -110,7 +112,8 @@ export const CONTENT: Record<Language, ContentData> = {
       waterPrice: "0,45 USD/m³ (3.000 m³/ngày đêm)",
       waste: "Xử lý nước thải",
       wastePrice: "0,3 USD/m³ (1.200 m³/ngày đêm)",
-      security: "An ninh nội khu 24/7",
+      security: "Phí quản lý hạ tầng",
+      securityPrice: "0,25 USD/m²/năm",
       solar: "Ưu đãi Solar Rooftop ESG"
     },
     services: {
@@ -182,9 +185,11 @@ export const CONTENT: Record<Language, ContentData> = {
       growthEngine: "Growth Engine",
       fdiLabel: "FDI 2023-2024",
       targetLabel: "Target 2025",
-      annualGrowth: "Annual Growth",
+      annualGrowth: "Average Annual Growth",
       fdiCapital: "FDI Capital",
-      vsPrevious: "vs previous period"
+      vsPrevious: "growth rate",
+      growthRate: "+40%",
+      currencyUnit: "B USD"
     },
     map: {
       title: "Strategic Location",
@@ -251,7 +256,8 @@ export const CONTENT: Record<Language, ContentData> = {
       waterPrice: "0.45 USD/m³ (3,000 m³/day)",
       waste: "Wastewater Treatment",
       wastePrice: "0.3 USD/m³ (1,200 m³/day)",
-      security: "24/7 On-site Security",
+      security: "Infrastructure Management Fee",
+      securityPrice: "0.25 USD/m²/year",
       solar: "ESG Solar Incentives"
     },
     services: {
@@ -323,9 +329,11 @@ export const CONTENT: Record<Language, ContentData> = {
       growthEngine: "增长引擎",
       fdiLabel: "FDI 2023-2024",
       targetLabel: "2025 目标",
-      annualGrowth: "年增长率",
+      annualGrowth: "年平均增长率",
       fdiCapital: "FDI 资本",
-      vsPrevious: "与上期相比"
+      vsPrevious: "增长率",
+      growthRate: "+40%",
+      currencyUnit: "十亿美元"
     },
     map: {
       title: "战略位置",
@@ -392,7 +400,8 @@ export const CONTENT: Record<Language, ContentData> = {
       waterPrice: "0.45 美元/m³ (3,000 m³/昼夜)",
       waste: "污水处理",
       wastePrice: "0.3 美元/m³ (1,200 m³/昼夜)",
-      security: "园区安保 24/7",
+      security: "基础设施管理费",
+      securityPrice: "0.25 美元/m²/年",
       solar: "ESG 绿色能源认证"
     },
     services: {

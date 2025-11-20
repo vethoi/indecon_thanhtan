@@ -104,14 +104,14 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
                         )}
 
                         {/* Content Area */}
-                        <div className="w-full h-full bg-slate-800 relative flex items-center justify-center bg-slate-900">
+                        <div className="w-full h-full bg-slate-900 relative">
                              {viewMode === 'master' ? (
                                  <>
                                     <img
                                         key={content.map.mapImage}
                                         src={`${import.meta.env.BASE_URL}${content.map.mapImage}`}
                                         alt="Thanh Tan Master Plan Map" 
-                                        className="w-full h-full object-contain transition-transform duration-700 animate-fade-in"
+                                        className="w-full h-full object-cover transition-transform duration-700 animate-fade-in opacity-90"
                                         onError={(e) => {
                                           // Fallback if even the placeholder fails
                                           e.currentTarget.style.display = 'none';

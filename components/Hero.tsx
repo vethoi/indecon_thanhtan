@@ -18,9 +18,9 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
             <img
               src={`${import.meta.env.BASE_URL}panorama.jpg`}
               alt="Background"
-              className="w-full h-full object-cover opacity-60"
+              className="w-full h-full object-cover opacity-70 brightness-110"
             />
-         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/90 via-slate-950/70 to-slate-950" />
+         <div className="absolute inset-0 bg-gradient-to-b from-slate-950/80 via-slate-950/60 to-slate-950" />
       </div>
 
       {/* 3D Five Elements Background Layer */}
@@ -87,43 +87,42 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
           {/* Right Column: Image (5 cols) */}
           <div className="lg:col-span-5 relative animate-fade-in mt-8 lg:mt-0 perspective-1000" style={{ animationDelay: '0.6s' }}>
              {/* Decorative elements behind */}
-             <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none"></div>
-             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none" style={{ animationDelay: '1s' }}></div>
+             <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-500/20 rounded-full blur-[100px] animate-pulse-slow pointer-events-none"></div>
+             <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/20 rounded-full blur-[100px] animate-pulse-slow pointer-events-none" style={{ animationDelay: '1s' }}></div>
 
-             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm group transition-transform duration-500 hover:scale-[1.01]">
-                {/* Animated Border Gradient */}
-                <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 opacity-100 pointer-events-none z-20"></div>
+             {/* Glass Card Container */}
+             <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-md group transition-transform duration-500 hover:scale-[1.01]">
                 
-                {/* Glow effect behind (enhanced) */}
-                <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-500/30 to-blue-600/30 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition duration-700"></div>
-                
-                <div className="relative bg-transparent rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] z-10">
+                {/* Image Area */}
+                <div className="relative w-full aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5]">
                     {!imgError ? (
-                      <>
-                        <img
-                          src={`${import.meta.env.BASE_URL}masterplan.jpg`}
-                          alt="Thanh Tan Master Plan" 
-                          className="w-full h-full object-contain p-1 transition-all duration-700 group-hover:scale-105 group-hover:brightness-110 opacity-85 hover:opacity-100 mix-blend-lighten"
-                          onError={() => setImgError(true)}
-                        />
-                        
-                        {/* Glossy reflection effect */}
-                        <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
-                      </>
+                      <img
+                        src={`${import.meta.env.BASE_URL}masterplan.jpg`}
+                        alt="Thanh Tan Master Plan" 
+                        className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        onError={() => setImgError(true)}
+                      />
                     ) : (
                        <div className="w-full h-full flex items-center justify-center bg-slate-800 text-slate-500">
                           <MapPin size={48} />
                        </div>
                     )}
+                    
+                    {/* Gradient Overlay for text readability */}
+                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950/90 via-transparent to-transparent opacity-80"></div>
                 </div>
                 
-                {/* Overlay Badge on Image - Refined */}
-                <div className="absolute bottom-4 left-4 right-4 bg-slate-950/60 backdrop-blur-md p-4 rounded-xl border border-white/10 z-20 transform transition-all duration-500 translate-y-2 group-hover:translate-y-0">
-                    <div className="flex items-center gap-2 mb-1">
-                        <div className="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></div>
-                        <p className="text-xs text-brand-300 uppercase font-bold tracking-wider">{content.hero.masterPlanLabel}</p>
+                {/* Content Overlay - Matching Reference */}
+                <div className="absolute bottom-0 left-0 right-0 p-6 z-20">
+                    <div className="bg-slate-900/40 backdrop-blur-xl border border-white/10 rounded-2xl p-4 shadow-lg">
+                        <div className="flex items-center gap-2 mb-2">
+                            <div className="w-2.5 h-2.5 bg-emerald-500 rounded-full shadow-[0_0_8px_rgba(16,185,129,0.5)] animate-pulse"></div>
+                            <span className="text-emerald-400 text-xs font-bold uppercase tracking-widest">{content.hero.masterPlanLabel}</span>
+                        </div>
+                        <p className="text-white text-sm font-medium leading-relaxed opacity-90">
+                            {content.hero.masterPlanDesc}
+                        </p>
                     </div>
-                    <p className="text-white text-sm font-medium opacity-90 group-hover:opacity-100 transition-opacity">{content.hero.masterPlanDesc}</p>
                 </div>
              </div>
           </div>

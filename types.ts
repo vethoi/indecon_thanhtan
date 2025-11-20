@@ -79,6 +79,7 @@ export interface ContentData {
     waste: string;
     wastePrice: string;
     security: string;
+    securityPrice: string;
     solar: string;
   };
   services: {

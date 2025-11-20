@@ -20,8 +20,24 @@ const Glow = ({ color, scale = 1 }: { color: string, scale?: number }) => {
   );
 };
 
-// Create a simple glow texture
-const glowTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/sprites/glow.png');
+// Create a simple glow texture using canvas (avoid external URL 404)
+const createGlowTexture = () => {
+  const canvas = document.createElement('canvas');
+  canvas.width = 128;
+  canvas.height = 128;
+  const ctx = canvas.getContext('2d');
+  if (ctx) {
+    const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+    gradient.addColorStop(0, 'rgba(255,255,255,1)');
+    gradient.addColorStop(0.5, 'rgba(255,255,255,0.5)');
+    gradient.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 128, 128);
+  }
+  const texture = new THREE.CanvasTexture(canvas);
+  return texture;
+};
+const glowTexture = createGlowTexture();
 
 const ElementShape = ({ position, color, type, speed = 1, scale = 1 }: { position: [number, number, number], color: string, type: 'metal' | 'wood' | 'water' | 'fire' | 'earth', speed?: number, scale?: number }) => {
   const meshRef = useRef<THREE.Mesh>(null);
@@ -96,8 +112,8 @@ const ElementShape = ({ position, color, type, speed = 1, scale = 1 }: { positio
         {/* Inner Light - Reduced intensity */}
         <pointLight color={color} intensity={0.8} distance={3} decay={2} />
         
-        {/* Glow Sprite - Subtle halo */}
-        <Billboard position={[0, 0, -1]}>
+        {/* Glow Sprite - Subtle halo centered on element */}
+        <Billboard>
             <sprite scale={[baseScale * 6, baseScale * 6, 1]}>
                 <spriteMaterial map={glowTexture} color={color} transparent opacity={0.3} blending={THREE.AdditiveBlending} depthWrite={false} />
             </sprite>
@@ -227,7 +243,7 @@ export const FiveElementsBackground = () => {
   
   // Adjust camera position for mobile
   // Y=0 to center vertically. Z=24 to fit the width of the system (~10-12 units) in portrait FOV.
-  const cameraPosition: [number, number, number] = isMobile ? [0, 0, 24] : [0, 2, 14];
+  const cameraPosition: [number, number, number] = isMobile ? [0, -2, 24] : [0, -1, 14];
 
   return (
     <div className="absolute inset-0 z-0 opacity-100">

@@ -104,15 +104,15 @@ export const InfrastructureSection: React.FC<InfrastructureSectionProps> = ({ co
                          {/* Conic Gradient for Chart Segments */}
                          <div className="w-full h-full rounded-full" style={{
                              background: `conic-gradient(
-                                #9333ea 0% 65%, 
-                                #22c55e 65% 80%, 
-                                #3b82f6 80% 100%
+                                #9333ea 0% 75%, 
+                                #22c55e 75% 87.5%, 
+                                #3b82f6 87.5% 100%
                              )`
                          }}></div>
                          {/* Inner Circle for Donut Effect */}
                          <div className="absolute inset-4 bg-slate-950 rounded-full flex items-center justify-center flex-col">
                              <span className="text-slate-400 text-xs uppercase font-bold">{content.infra.totalLabel}</span>
-                             <span className="text-white text-xl font-bold">65.4 ha</span>
+                             <span className="text-white text-xl font-bold">65.47 ha</span>
                          </div>
                          {/* Hover glow effect */}
                          <div className="absolute inset-0 rounded-full bg-purple-500 blur-[60px] opacity-0 group-hover:opacity-20 transition-opacity"></div>
@@ -125,21 +125,21 @@ export const InfrastructureSection: React.FC<InfrastructureSectionProps> = ({ co
                                 <span className="w-3 h-3 rounded-full bg-purple-600"></span>
                                 <span className="text-slate-300">{content.infra.industrialLandLabel}</span>
                             </div>
-                            <span className="text-white font-bold">65%</span>
+                            <span className="text-white font-bold">75%</span>
                         </div>
                          <div className="flex items-center justify-between text-sm">
                             <div className="flex items-center gap-2">
                                 <span className="w-3 h-3 rounded-full bg-green-500"></span>
                                 <span className="text-slate-300">{content.infra.greenWaterLabel}</span>
                             </div>
-                            <span className="text-white font-bold">15%</span>
+                            <span className="text-white font-bold">12.5%</span>
                         </div>
                          <div className="flex items-center justify-between text-sm">
                             <div className="flex items-center gap-2">
                                 <span className="w-3 h-3 rounded-full bg-blue-500"></span>
                                 <span className="text-slate-300">{content.infra.trafficTechLabel}</span>
                             </div>
-                            <span className="text-white font-bold">20%</span>
+                            <span className="text-white font-bold">12.5%</span>
                         </div>
                      </div>
                 </div>

@@ -5,8 +5,24 @@ import * as THREE from 'three';
 
 type IconType = 'ruler' | 'calendar' | 'electricity' | 'water' | 'waste' | 'security';
 
-// Create a simple glow texture
-const glowTexture = new THREE.TextureLoader().load('https://raw.githubusercontent.com/mrdoob/three.js/master/examples/textures/sprites/glow.png');
+// Create a simple glow texture using canvas (avoid external URL 404)
+const createGlowTexture = () => {
+  const canvas = document.createElement('canvas');
+  canvas.width = 128;
+  canvas.height = 128;
+  const ctx = canvas.getContext('2d');
+  if (ctx) {
+    const gradient = ctx.createRadialGradient(64, 64, 0, 64, 64, 64);
+    gradient.addColorStop(0, 'rgba(255,255,255,1)');
+    gradient.addColorStop(0.5, 'rgba(255,255,255,0.5)');
+    gradient.addColorStop(1, 'rgba(255,255,255,0)');
+    ctx.fillStyle = gradient;
+    ctx.fillRect(0, 0, 128, 128);
+  }
+  const texture = new THREE.CanvasTexture(canvas);
+  return texture;
+};
+const glowTexture = createGlowTexture();
 
 const IconShape = ({ type, color }: { type: IconType, color: string }) => {
   const meshRef = useRef<THREE.Mesh>(null);
