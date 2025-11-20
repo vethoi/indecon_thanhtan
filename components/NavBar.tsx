@@ -39,24 +39,26 @@ export const NavBar: React.FC<NavBarProps> = ({ lang, setLang, content }) => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
           {/* Logo */}
-          <div className="flex items-center gap-3 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
+          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
             <img
               src={`${import.meta.env.BASE_URL}logo.png`}
               alt="Thanh Tan Logo"
-              className="h-10 w-auto object-contain opacity-90"
+              className="h-8 md:h-10 w-auto object-contain opacity-90"
               onError={(e) => {
                 e.currentTarget.style.display = 'none';
                 e.currentTarget.nextElementSibling?.classList.remove('hidden');
               }}
             />
             {/* Fallback Text Logo (hidden by default if image loads) */}
-            <div className="hidden h-10 w-10 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center text-white font-bold text-xl shadow-brand-500/50 shadow-lg">
+            <div className="hidden h-8 w-8 md:h-10 md:w-10 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-brand-500/50 shadow-lg">
               T
             </div>
             
             <div className="flex flex-col items-start justify-center">
-              <span className="text-white font-bold text-lg tracking-tight leading-none">THANH TAN</span>
-              <span className="text-brand-400 text-xs font-medium tracking-wider leading-none">{content.nav.industrialCluster}</span>
+              <span className="text-white font-bold text-base md:text-lg tracking-tight leading-none">
+                {lang === 'vi' ? 'THANH TÂN' : 'THANH TAN'}
+              </span>
+              <span className="text-brand-400 text-[10px] md:text-xs font-medium tracking-wider leading-none">{content.nav.industrialCluster}</span>
             </div>
           </div>
 

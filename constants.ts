@@ -122,7 +122,7 @@ export const CONTENT: Record<Language, ContentData> = {
       list: [
         "Nhà xưởng, nhà kho xây sẵn cho thuê",
         "Xây nhà xưởng theo yêu cầu (BTS)",
-        "Tư vấn miễn phí thủ tục đầu tư, môi trường, PCCC"
+        "Tư vấn miễn phí Thủ tục Đầu tư, Giấy phép Môi trường, PCCC và Giấy phép Xây dựng"
       ],
       steps: {
         investCert: "Giấy chứng nhận đầu tư (Từ 30 ngày)",
@@ -266,7 +266,7 @@ export const CONTENT: Record<Language, ContentData> = {
       list: [
         "Ready-built factories/warehouses for lease",
         "Build-to-suit solutions",
-        "Free consultation on permits (Investment, Fire, Environment)"
+        "Free consultation on Investment Permit, Environmental Permit, Fire Prevention and Construction Permit"
       ],
       steps: {
         investCert: "Investment Cert (From 30 days)",
@@ -410,7 +410,7 @@ export const CONTENT: Record<Language, ContentData> = {
       list: [
         "现成厂房、仓库出租",
         "按需定制建设 (BTS)",
-        "免费咨询投资证书、消防、环保手续"
+        "免费咨询投资许可证、环境许可证、消防许可证及建筑许可证"
       ],
       steps: {
         investCert: "投资证书 (30天起)",
