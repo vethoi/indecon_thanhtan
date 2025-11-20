@@ -13,11 +13,19 @@ export const NavBar: React.FC<NavBarProps> = ({ lang, setLang, content }) => {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [langMenuOpen, setLangMenuOpen] = useState(false);
+  const [showLogo, setShowLogo] = useState(true);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setShowLogo(prev => !prev);
+    }, 8000); // Toggle every 8 seconds
+    return () => clearInterval(interval);
   }, []);
 
   const languages: { code: Language; label: string; flag: string }[] = [
@@ -35,30 +43,43 @@ export const NavBar: React.FC<NavBarProps> = ({ lang, setLang, content }) => {
   ];
 
   return (
-    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/90 backdrop-blur-md border-b border-slate-800 py-3 shadow-lg' : 'bg-transparent py-5'}`}>
+    <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${scrolled ? 'bg-slate-900/95 backdrop-blur-lg border-b border-slate-800 py-3 shadow-lg' : 'bg-slate-950/80 backdrop-blur-sm py-5'}`}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => window.scrollTo(0, 0)}>
-            <img
-              src={`${import.meta.env.BASE_URL}logo.png`}
-              alt="Thanh Tan Logo"
-              className="h-8 md:h-10 w-auto object-contain opacity-90"
-              onError={(e) => {
-                e.currentTarget.style.display = 'none';
-                e.currentTarget.nextElementSibling?.classList.remove('hidden');
-              }}
-            />
-            {/* Fallback Text Logo (hidden by default if image loads) */}
-            <div className="hidden h-8 w-8 md:h-10 md:w-10 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-brand-500/50 shadow-lg">
-              T
+          {/* Logo - Alternating Display */}
+          <div className="flex items-center gap-2 cursor-pointer relative h-10 md:h-12" onClick={() => window.scrollTo(0, 0)}>
+            {/* Logo Image */}
+            <div className={`absolute inset-0 flex items-center gap-2 transition-opacity duration-1000 ease-in-out ${showLogo ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <img
+                src={`${import.meta.env.BASE_URL}logo.png`}
+                alt="Thanh Tan Logo"
+                className="h-8 md:h-10 w-auto object-contain opacity-90"
+                onError={(e) => {
+                  e.currentTarget.style.display = 'none';
+                }}
+              />
             </div>
             
-            <div className="flex flex-col items-start justify-center">
-              <span className="text-white font-bold text-base md:text-lg tracking-tight leading-none">
-                {lang === 'vi' ? 'THANH TÂN' : 'THANH TAN'}
-              </span>
-              <span className="text-brand-400 text-[10px] md:text-xs font-medium tracking-wider leading-none">{content.nav.industrialCluster}</span>
+            {/* Text Logo */}
+            <div className={`absolute inset-0 flex items-center gap-2 transition-opacity duration-1000 ease-in-out ${!showLogo ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+              <div className="h-8 w-8 md:h-10 md:w-10 bg-gradient-to-br from-brand-500 to-brand-700 rounded-lg flex items-center justify-center text-white font-bold text-lg md:text-xl shadow-brand-500/50 shadow-lg flex-shrink-0">
+                T
+              </div>
+              <div className="flex flex-col items-start justify-center">
+                <span className="text-white font-bold text-base md:text-lg tracking-tight leading-none whitespace-nowrap">
+                  {lang === 'vi' ? 'THANH TÂN' : 'THANH TAN'}
+                </span>
+                <span className="text-brand-400 text-[10px] md:text-xs font-medium tracking-wider leading-none whitespace-nowrap">{content.nav.industrialCluster}</span>
+              </div>
+            </div>
+            
+            {/* Spacer to maintain width */}
+            <div className="opacity-0 pointer-events-none flex items-center gap-2">
+              <div className="h-8 w-8 md:h-10 md:w-10"></div>
+              <div className="flex flex-col">
+                <span className="text-base md:text-lg whitespace-nowrap">THANH TÂN</span>
+                <span className="text-[10px] md:text-xs whitespace-nowrap">{content.nav.industrialCluster}</span>
+              </div>
             </div>
           </div>
 
