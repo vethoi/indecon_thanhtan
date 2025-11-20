@@ -104,7 +104,33 @@ export const NavBar: React.FC<NavBarProps> = ({ lang, setLang, content }) => {
           </div>
 
           {/* Mobile Menu Button */}
-          <div className="md:hidden flex items-center gap-4">
+          <div className="md:hidden flex items-center gap-2">
+            {/* Quick Language Switcher on Mobile */}
+            <div className="relative">
+              <button 
+                onClick={() => setLangMenuOpen(!langMenuOpen)}
+                className="flex items-center gap-1 text-slate-300 hover:text-white bg-slate-800/50 px-2 py-1.5 rounded-full border border-slate-700 text-sm"
+              >
+                <Globe size={16} />
+                <span className="text-xs font-bold">{lang.toUpperCase()}</span>
+              </button>
+              {langMenuOpen && (
+                <div className="absolute right-0 mt-2 w-40 bg-slate-900 border border-slate-700 rounded-lg shadow-xl overflow-hidden z-50 animate-fade-in">
+                  {languages.map((l) => (
+                    <button
+                      key={l.code}
+                      onClick={() => { setLang(l.code); setLangMenuOpen(false); }}
+                      className={`w-full px-4 py-2.5 text-left hover:bg-slate-800 transition-colors flex items-center gap-2 ${
+                        lang === l.code ? 'bg-brand-900/30 text-brand-400' : 'text-slate-300'
+                      }`}
+                    >
+                      <span className="text-lg">{l.flag}</span>
+                      <span className="text-sm font-medium">{l.label}</span>
+                    </button>
+                  ))}
+                </div>
+              )}
+            </div>
             <button onClick={() => setIsOpen(!isOpen)} className="text-slate-300 hover:text-white">
               {isOpen ? <X size={24} /> : <Menu size={24} />}
             </button>
