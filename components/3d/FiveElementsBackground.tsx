@@ -215,10 +215,24 @@ const RotatingSystem = () => {
 }
 
 export const FiveElementsBackground = () => {
+  // Use state to handle mobile check to avoid hydration mismatch
+  const [isMobile, setIsMobile] = useState(false);
+
+  React.useEffect(() => {
+    const checkMobile = () => setIsMobile(window.innerWidth < 768);
+    checkMobile(); // Check immediately
+    window.addEventListener('resize', checkMobile);
+    return () => window.removeEventListener('resize', checkMobile);
+  }, []);
+  
+  // Adjust camera position for mobile
+  // Y=0 to center vertically. Z=24 to fit the width of the system (~10-12 units) in portrait FOV.
+  const cameraPosition: [number, number, number] = isMobile ? [0, 0, 24] : [0, 2, 14];
+
   return (
     <div className="absolute inset-0 z-0 opacity-100">
       <Canvas gl={{ alpha: true, antialias: true }} dpr={[1, 2]} shadows>
-        <PerspectiveCamera makeDefault position={[0, 2, 14]} fov={45} />
+        <PerspectiveCamera makeDefault position={cameraPosition} fov={45} />
         
         {/* Environment for Gem Reflections */}
         <Environment preset="city" />

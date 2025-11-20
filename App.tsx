@@ -12,8 +12,8 @@ import { ContactSection } from './components/ContactSection';
 
 const App: React.FC = () => {
   // Default language is Vietnamese as it's a Vietnam based project, but code supports all 3.
-  // Using 'vi' as default.
-  const [lang, setLang] = useState<Language>('vi');
+  // Using 'en' as default.
+  const [lang, setLang] = useState<Language>('en');
   
   const content = CONTENT[lang];
 

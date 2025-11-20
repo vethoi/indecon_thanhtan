@@ -69,7 +69,7 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
 
             <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 {/* Map Container - Taking up 8 columns */}
-                <div className="lg:col-span-8 relative group h-[600px]">
+                <div className="lg:col-span-8 relative group h-[400px] md:h-[600px]">
                     <div className="absolute -inset-1 bg-gradient-to-r from-brand-500 to-blue-600 rounded-3xl blur opacity-20 group-hover:opacity-40 transition duration-1000"></div>
                     <div className="relative w-full h-full bg-slate-900 border border-slate-700 rounded-3xl overflow-hidden shadow-2xl">
                         
@@ -104,14 +104,14 @@ export const MapSection: React.FC<MapSectionProps> = ({ content }) => {
                         )}
 
                         {/* Content Area */}
-                        <div className="w-full h-full bg-slate-800 relative">
+                        <div className="w-full h-full bg-slate-800 relative flex items-center justify-center bg-slate-900">
                              {viewMode === 'master' ? (
                                  <>
                                     <img
                                         key={content.map.mapImage}
                                         src={`${import.meta.env.BASE_URL}${content.map.mapImage}`}
                                         alt="Thanh Tan Master Plan Map" 
-                                        className="w-full h-full object-cover transition-transform duration-700 animate-fade-in"
+                                        className="w-full h-full object-contain transition-transform duration-700 animate-fade-in"
                                         onError={(e) => {
                                           // Fallback if even the placeholder fails
                                           e.currentTarget.style.display = 'none';

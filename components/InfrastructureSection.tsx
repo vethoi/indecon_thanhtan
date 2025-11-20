@@ -1,6 +1,7 @@
 
 import React from 'react';
-import { Zap, Droplets, ShieldCheck, Coins, Building2, Trash2, PieChart } from 'lucide-react';
+import { Coins, Building2, PieChart } from 'lucide-react';
+import { Icon3D } from './3d/Icon3D';
 
 interface InfrastructureSectionProps {
   content: any;
@@ -148,25 +149,25 @@ export const InfrastructureSection: React.FC<InfrastructureSectionProps> = ({ co
         {/* Utilities Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
            <UtilityCard 
-              icon={<Zap />} 
+              icon={<Icon3D type="electricity" color="#facc15" />} 
               title={content.utilities.electricity} 
               desc={content.utilities.electricityDesc}
               color="yellow"
            />
            <UtilityCard 
-              icon={<Droplets />} 
+              icon={<Icon3D type="water" color="#22d3ee" />} 
               title={content.utilities.water} 
               desc={content.utilities.waterPrice}
               color="cyan"
            />
            <UtilityCard 
-              icon={<Trash2 />} 
+              icon={<Icon3D type="waste" color="#fb7185" />} 
               title={content.utilities.waste} 
               desc={content.utilities.wastePrice}
               color="rose"
            />
             <UtilityCard 
-              icon={<ShieldCheck />} 
+              icon={<Icon3D type="security" color="#34d399" />} 
               title={content.utilities.security} 
               desc="Professional Service"
               color="emerald"
@@ -187,7 +188,7 @@ const UtilityCard = ({ icon, title, desc, color }: { icon: any, title: string, d
 
   return (
     <div className={`group p-6 rounded-2xl border border-slate-800 bg-slate-950/50 backdrop-blur flex flex-col items-start transition-all duration-300 hover:-translate-y-1 hover:bg-slate-900 hover:shadow-xl ${colors[color]}`}>
-      <div className="mb-4 p-3 rounded-xl bg-slate-900 border border-slate-800 group-hover:bg-white/5 transition-colors">
+      <div className="mb-4 p-0 rounded-xl bg-transparent border-none group-hover:scale-110 transition-transform">
         {icon}
       </div>
       <h4 className="text-lg font-bold text-slate-200 mb-2 group-hover:text-white transition-colors">{title}</h4>
