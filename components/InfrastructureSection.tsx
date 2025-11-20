@@ -169,7 +169,7 @@ export const InfrastructureSection: React.FC<InfrastructureSectionProps> = ({ co
             <UtilityCard 
               icon={<Icon3D type="security" color="#34d399" />} 
               title={content.utilities.security} 
-              desc="Professional Service"
+              desc={content.utilities.securityPrice}
               color="emerald"
            />
         </div>

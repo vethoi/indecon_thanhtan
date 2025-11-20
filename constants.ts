@@ -86,7 +86,7 @@ export const CONTENT: Record<Language, ContentData> = {
     pricing: {
       title: "Giá & Thuế Đất",
       landPrice: "Giá thuê đất: Từ 85 USD/m²",
-      landTax: "Thuế đất hàng năm: 7.200 VND/m² (ổn định 5 năm)",
+      landTax: "Thuế đất hàng năm: 7.600 VND/m² (ổn định 5 năm)",
       taxIncentive1: "Miễn 100% thuế TNDN (2 năm đầu)",
       taxIncentive2: "Giảm 50% thuế TNDN (4 năm tiếp theo)"
     },
@@ -112,7 +112,7 @@ export const CONTENT: Record<Language, ContentData> = {
       waterPrice: "0,45 USD/m³ (3.000 m³/ngày đêm)",
       waste: "Xử lý nước thải",
       wastePrice: "0,3 USD/m³ (1.200 m³/ngày đêm)",
-      security: "Phí quản lý hạ tầng",
+      security: "Phí quản lý",
       securityPrice: "0,25 USD/m²/năm",
       solar: "Ưu đãi Solar Rooftop ESG"
     },
@@ -230,7 +230,7 @@ export const CONTENT: Record<Language, ContentData> = {
     pricing: {
       title: "Land Price & Tax",
       landPrice: "Land Price: From 85 USD/m²",
-      landTax: "Annual Land Tax: 7,200 VND/m² (Fixed for 5 years)",
+      landTax: "Annual Land Tax: 7,600 VND/m² (Fixed for 5 years)",
       taxIncentive1: "100% CIT Exemption (First 2 years)",
       taxIncentive2: "50% CIT Reduction (Next 4 years)"
     },
@@ -256,7 +256,7 @@ export const CONTENT: Record<Language, ContentData> = {
       waterPrice: "0.45 USD/m³ (3,000 m³/day)",
       waste: "Wastewater Treatment",
       wastePrice: "0.3 USD/m³ (1,200 m³/day)",
-      security: "Infrastructure Management Fee",
+      security: "Management Fee",
       securityPrice: "0.25 USD/m²/year",
       solar: "ESG Solar Incentives"
     },
@@ -374,7 +374,7 @@ export const CONTENT: Record<Language, ContentData> = {
     pricing: {
       title: "土地价格与税收",
       landPrice: "土地价格: 85 美元/m² 起",
-      landTax: "年土地税: 7,200 越南盾/m² (每5年调整)",
+      landTax: "年土地税: 7,600 越南盾/m² (每5年调整)",
       taxIncentive1: "企业所得税 100% 免税 (前 2 年)",
       taxIncentive2: "企业所得税减免 50% (后 4 年)"
     },
@@ -400,7 +400,7 @@ export const CONTENT: Record<Language, ContentData> = {
       waterPrice: "0.45 美元/m³ (3,000 m³/昼夜)",
       waste: "污水处理",
       wastePrice: "0.3 美元/m³ (1,200 m³/昼夜)",
-      security: "基础设施管理费",
+      security: "管理费",
       securityPrice: "0.25 美元/m²/年",
       solar: "ESG 绿色能源认证"
     },

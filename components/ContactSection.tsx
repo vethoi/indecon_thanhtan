@@ -42,13 +42,13 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ content }) => {
 
 const ContactItem = ({ icon, text, href }: { icon: any, text: string, href?: string }) => (
   <div className="flex items-center gap-4">
-    <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-brand-400">
+    <div className="w-10 h-10 rounded-full bg-slate-800 flex items-center justify-center text-brand-400 flex-shrink-0">
       {icon}
     </div>
     {href ? (
-      <a href={href} className="text-white hover:text-brand-400 transition-colors text-lg font-medium">{text}</a>
+      <a href={href} className="text-white hover:text-brand-400 transition-colors text-lg font-medium whitespace-nowrap">{text}</a>
     ) : (
-      <span className="text-white text-lg font-medium">{text}</span>
+      <span className="text-white text-lg font-medium whitespace-nowrap">{text}</span>
     )}
   </div>
 );
