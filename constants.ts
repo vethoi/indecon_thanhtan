@@ -71,13 +71,13 @@ export const CONTENT: Record<Language, ContentData> = {
     overview: {
       title: "Tổng quan Khu kinh tế Thái Bình",
       desc: "Nằm trong vùng kinh tế trọng điểm Bắc Bộ, kết nối thuận tiện.",
-      locationTitle: "Vị trí vàng",
+      locationTitle: "Vị Trí Vàng",
       locationDesc: "Kết nối dễ dàng với cảng Hải Phòng, cửa khẩu Hữu Nghị, sân bay Nội Bài và Cát Bi thông qua hệ thống cao tốc CT08, CT16, CT05B.",
-      infraTitle: "Hạ tầng hiện đại",
+      infraTitle: "Hạ Tầng Hiện Đại",
       infraDesc: "Đạt tiêu chuẩn quốc tế, đã hoàn thiện và sẵn sàng chào đón dự án."
     },
     labor: {
-      title: "Nguồn lao động",
+      title: "Nguồn Lao Động",
       desc: "Vùng Thái Bình có khoảng 2 triệu người. 60% dưới 35 tuổi. Lao động chất lượng cao chiếm 75%.",
       region: "Vùng 4",
       wage: "Lương tối thiểu: 3.450.000 VND",
