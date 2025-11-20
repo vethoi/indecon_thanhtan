@@ -90,25 +90,22 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
              <div className="absolute -top-20 -right-20 w-64 h-64 bg-brand-500/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none"></div>
              <div className="absolute -bottom-20 -left-20 w-64 h-64 bg-blue-500/10 rounded-full blur-3xl animate-pulse-slow pointer-events-none" style={{ animationDelay: '1s' }}></div>
 
-             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-slate-900/40 backdrop-blur-md group transition-transform duration-500 hover:scale-[1.01]">
+             <div className="relative rounded-2xl overflow-hidden shadow-2xl border border-white/10 bg-white/5 backdrop-blur-sm group transition-transform duration-500 hover:scale-[1.01]">
                 {/* Animated Border Gradient */}
                 <div className="absolute inset-0 bg-gradient-to-br from-white/10 via-transparent to-white/5 opacity-100 pointer-events-none z-20"></div>
                 
                 {/* Glow effect behind (enhanced) */}
                 <div className="absolute -inset-0.5 bg-gradient-to-br from-brand-500/30 to-blue-600/30 rounded-2xl blur-md opacity-0 group-hover:opacity-100 transition duration-700"></div>
                 
-                <div className="relative bg-slate-900/60 rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] z-10">
+                <div className="relative bg-transparent rounded-2xl overflow-hidden aspect-[4/5] md:aspect-[3/4] lg:aspect-[4/5] z-10">
                     {!imgError ? (
                       <>
                         <img
                           src={`${import.meta.env.BASE_URL}masterplan.jpg`}
                           alt="Thanh Tan Master Plan" 
-                          className="w-full h-full object-contain p-1 transition-all duration-700 group-hover:scale-105 group-hover:brightness-110"
+                          className="w-full h-full object-contain p-1 transition-all duration-700 group-hover:scale-105 group-hover:brightness-110 opacity-85 hover:opacity-100 mix-blend-lighten"
                           onError={() => setImgError(true)}
                         />
-                        {/* Subtle color grading overlay that disappears on hover to make it blend initially */}
-                        <div className="absolute inset-0 bg-slate-950/30 mix-blend-multiply group-hover:opacity-0 transition-opacity duration-700 pointer-events-none"></div>
-                        <div className="absolute inset-0 bg-blue-900/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-700 pointer-events-none"></div>
                         
                         {/* Glossy reflection effect */}
                         <div className="absolute inset-0 bg-gradient-to-tr from-white/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"></div>
@@ -121,7 +118,7 @@ export const Hero: React.FC<HeroProps> = ({ content }) => {
                 </div>
                 
                 {/* Overlay Badge on Image - Refined */}
-                <div className="absolute bottom-4 left-4 right-4 bg-slate-950/80 backdrop-blur-md p-4 rounded-xl border border-white/10 z-20 transform transition-all duration-500 translate-y-2 group-hover:translate-y-0">
+                <div className="absolute bottom-4 left-4 right-4 bg-slate-950/60 backdrop-blur-md p-4 rounded-xl border border-white/10 z-20 transform transition-all duration-500 translate-y-2 group-hover:translate-y-0">
                     <div className="flex items-center gap-2 mb-1">
                         <div className="w-2 h-2 bg-brand-500 rounded-full animate-pulse"></div>
                         <p className="text-xs text-brand-300 uppercase font-bold tracking-wider">{content.hero.masterPlanLabel}</p>
